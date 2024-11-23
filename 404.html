@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Страница не найдена</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Unbounded", sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(95deg, #ff6f61, #ffcccb);
+            animation: gradient-animation 20s ease infinite;
+            color: white;
+            text-align: center;
+        }
+
+        /* Контейнер для 404 */
+        .error-container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* Большая цифра 404 */
+        .error-container h1 {
+            font-size: 120px;
+            margin: 0;
+            line-height: 1;
+            background: -webkit-linear-gradient(45deg, #242424, #242424);;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Текст ошибки */
+        .error-container p {
+            font-size: 18px;
+            margin: 10px 0 30px;
+            color: #ffe4e1;
+        }
+
+        /* Кнопка возврата */
+        .error-container a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #ffffff;
+            color: #ff6f61;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .error-container a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        /* Анимация */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .error-container h1 {
+            animation: float 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>404</h1>
+        <p>К сожалению, запрашиваемая страница не найдена.<br> Возможно, она была удалена или вы ввели неправильный адрес.</p>
+        <a href="index.html">На главную</a>
+    </div>
+</body>
+</html>
