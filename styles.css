@@ -8,6 +8,7 @@ body {
     font-weight: bold;
     cursor: none;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 /* Прелоадер */
