@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
     margin: 0;
     padding: 0;
@@ -7,7 +8,140 @@ body {
     font-weight: bold;
     cursor: none;
     overflow: auto;
-    box-sizing: border-box;
+}
+
+/* Прелоадер */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #967474, #3f3f3f, #3f3f3f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 0s;
+}
+
+#loader:after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 5px solid white;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Контент страницы, изначально скрыт */
+#content.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Анимация для появления контента */
+#content.show {
+    opacity: 1;
+    transform: translateY(0);
+    overflow: auto; /* Включаем прокрутку после завершения загрузки */
+}
+
+/* Анимация вращения */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Анимация исчезновения прелоадера */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Основной анимированный фон */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #242424;
+    background-size: 300% 300%;
+    animation: gradient-animation 8s ease infinite;
+    z-index: -1;
+}
+
+/* Анимация градиента */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Содержимое страницы */
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.content h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.content p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Текст с небольшой тенью */
+h1 {
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Для текста в центре страницы */
+.content {
+    text-align: center;
+    z-index: 1;
+}
+
+/* Кастомный курсор */
+.custom-cursor {
+    position: fixed;
+    width: 20px; /* Диаметр круга */
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Цвет круга */
+    border-radius: 50%;
+    pointer-events: none; /* Отключаем взаимодействие с элементом */
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: transform 0.1s ease-out, background-color 0.2s ease;
+}
+
+/* Эффект увеличения курсора при наведении на ссылку */
+.custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /*Подключение шрифта*/
@@ -17,7 +151,7 @@ body {
     font-style: normal;
   }
 
-/* Стили для шапки */
+  /* Стили для шапки */
 header {
     text-align: center;
     padding: 30px 0;
@@ -153,135 +287,33 @@ a:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, #967474, #3f3f3f, #3f3f3f);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    animation: fadeOut 1s ease forwards;
-    animation-delay: 0s;
+/*Личный аккаунт*/
+.edit-profile {
+    margin-left: 770px;
 }
 
-#loader:after {
-    content: "";
-    width: 50px;
-    height: 50px;
-    border: 5px solid white;
-    border-top: 5px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+.booking {
+    margin-left: 806px;
 }
 
-/* Контент страницы, изначально скрыт */
-#content.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+.logout {
+    margin-left: 873px;
 }
 
-/* Анимация для появления контента */
-#content.show {
-    opacity: 1;
-    transform: translateY(0);
-    overflow: auto; /* Включаем прокрутку после завершения загрузки */
+.addFunds {
+    margin-left: 805px;
 }
 
-/* Анимация вращения */
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.spendFunds {
+    margin-left: 810px;
 }
 
-/* Анимация исчезновения прелоадера */
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
+.historybalance {
+    margin-left: -130px;
+    color: #ffffff;
 }
 
-/* Основной анимированный фон */
-.animated-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #242424;
-    background-size: 300% 300%;
-    animation: gradient-animation 8s ease infinite;
-    z-index: -1;
-}
-
-/* Анимация градиента */
-@keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Содержимое страницы */
-.content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.content h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.content p {
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* Текст с небольшой тенью */
-h1 {
-    font-size: 40px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Для текста в центре страницы */
-.content {
-    text-align: center;
-    z-index: 1;
+.admin {
+    margin-left: 877px;
+    margin-top: 50px;
 }
