@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loader.style.display = "none";
         content.classList.remove("hidden");
         content.classList.add("show");
-    }, 2000); // Задержка в 2 секунды
+    }, 200); // Задержка в 200 милисекунд
 });
 
 // Создаём элемент кастомного курсора
