@@ -75,38 +75,35 @@ function initMap() {
 
 
 let slideIndex = 0;
+        let slides = document.querySelectorAll('.slides');
 
-    // Функция для переключения слайдов
-    function showSlides() {
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        
-        // Скрываем все слайды
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        
-        // Убираем активное состояние у всех точек
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
+        // Функция для показа слайдов
+        function showSlide(index) {
+            if (index >= slides.length) slideIndex = 0;
+            if (index < 0) slideIndex = slides.length - 1;
+
+            slides.forEach((slide, i) => {
+                slide.style.display = i === slideIndex ? 'block' : 'none';
+            });
         }
 
-        // Показать текущий слайд
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
+        // Навигация по слайдам
+        document.querySelectorAll('.next').forEach((button, index) => {
+            button.addEventListener('click', () => {
+                slideIndex++;
+                showSlide(slideIndex);
+            });
+        });
 
-        // Показываем текущий слайд
-        slides[slideIndex - 1].style.display = "block";
+        document.querySelectorAll('.prev').forEach((button, index) => {
+            button.addEventListener('click', () => {
+                slideIndex--;
+                showSlide(slideIndex);
+            });
+        });
 
-        // Активируем соответствующую точку
-        dots[slideIndex - 1].className += " active";
-
-        // Снова показываем слайды через 3 секунды
-        setTimeout(showSlides, 3000); 
-    }
-
-    // Инициализация слайдшоу
-    showSlides();
+        // Инициализация первого слайда
+        showSlide(slideIndex);
 
 /*Страница оплаты*/
 function updateOptions() {
