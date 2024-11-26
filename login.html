@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"> <!-- Подключаем Font Awesome -->
 </head>
 <body>
     <style>
@@ -19,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #242424, #042153); /* Градиентный фон */
+            background-color: #242424;
             color: rgb(255, 255, 255);
             cursor: none;
         }
@@ -55,7 +56,7 @@
 
         /* Стиль кнопки входа */
         .login-container button {
-            background-color: #242424;
+            background-color: #4b4a4a;
             color: rgb(255, 255, 255);
             font-family: "Unbounded", sans-serif;
             padding: 10px 10px;
@@ -68,7 +69,7 @@
         }
 
         .login-container button:hover {
-            background-color: #042156;
+            background-color: #ff9a9e;
         }
 
         /* Стиль дополнительной ссылки */
@@ -101,8 +102,32 @@
         transform: translate(-50%, -50%) scale(1.5);
         background-color: rgba(0, 0, 0, 0.5);
     }
+
+    .back-button {
+            position: center;
+            top: 20px;
+            left: 20px;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #ddd;
+            border-radius: 50%;
+        }
+
+        .back-button i {
+            font-size: 30px;
+        }
     </style>
     <div class="login-container">
+        <button class="back-button" onclick="window.location.href='index.html';">
+            <i class="fas fa-home"></i> <!-- Иконка галочки -->
+        </button>
         <h1>Личный кабинет</h1>
         <form id="loginForm">
             <label for="username">Имя пользователя</label>
