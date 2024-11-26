@@ -1,0 +1,30 @@
+/*Личный аккаунт*/
+.edit-profile {
+    margin-left: 770px;
+}
+
+.booking {
+    margin-left: 806px;
+}
+
+.logout {
+    margin-left: 873px;
+}
+
+.addFunds {
+    margin-left: 805px;
+}
+
+.spendFunds {
+    margin-left: 810px;
+}
+
+.historybalance {
+    margin-left: -130px;
+    color: #ffffff;
+}
+
+.admin {
+    margin-left: 877px;
+    margin-top: 50px;
+}
