@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор метода оплаты</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: "Unbounded", sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      cursor: none;
+      background-image: url(gradient.avif);
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.555); /* Прозрачный белый фон */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.014);
+      width: 300px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 20px;
+      color: #333333;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 14px;
+      color: #555555;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333333;
+      background-color: #f9f9f9;
+      appearance: none;
+      background-image: src('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuNzkxOTkgNy44MTAyNkMxLjQ2MTgyIDcuNDUwMzQgMS40NjE4MiA2LjkyNzcyIDEuNzkxOTkgNi41NTk3OUwyLjc0MDg1IDUuNTU5NzhDMi45NzcwNiA1LjMwNTQ3IDMuMzAwNzYgNS4yMTU1NiAzLjU0MzI5IDUuMzE0MzRMMTAgOC45ODc2NEwxNi40NTY3IDUuMzE0MzRDMTYuNjk5MyA1LjIxNTU2IDE3LjAyOTQgNS4zMDU0NyAxNy4yNTkxIDUuNTU5NzhMMTguMjA4MSA2LjU1OTc5QzE4LjUzODYgNi45Mjc3MiAxOC41Mzg2IDcuNDUwMzQgMTguMjA4MSA3LjgxMDI2TDEwLjM2NDQgMTMuNzgxNUMxMC4xNzEzIDEzLjkzNTkgOS44Mjg3MyAxMy45MzU5IDkuNjMxNTMgMTMuNzgxNUwxLjgwMDcxIDcuODEwMjZaIiBmaWxsPSIjY2NjIi8+Cjwvc3ZnPg==');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 12px;
+      cursor: none;
+      font-family: "Unbounded", sans-serif;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4b4a4a;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: none;
+      margin-top: 15px;
+      font-family: "Unbounded", sans-serif;
+    }
+
+    button:hover {
+      background-color: #ff0000;
+    }
+
+    .back-button {
+        width: 100%;
+      padding: 10px;
+      background-color: #ff9a9e;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: none;
+      margin-top: 15px;
+      font-family: "Unbounded", sans-serif; 
+    }
+
+    .back-button:hover {
+      background-color: #fad0c4;
+    }
+
+    .add-card-section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 0px solid #ddd;
+    }
+
+    .add-card-section h2 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .add-card-section.visible {
+      display: block;
+    }
+
+    .card-input {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-input input {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .custom-cursor {
+            position: fixed;
+            width: 20px; /* Диаметр круга */
+            height: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Цвет круга */
+            border-radius: 50%;
+            pointer-events: none; /* Отключаем взаимодействие с элементом */
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: transform 0.1s ease-out, background-color 0.2s ease;
+        }
+        
+        /* Эффект увеличения курсора при наведении на ссылку */
+        .custom-cursor.hover {
+        transform: translate(-50%, -50%) scale(1.5);
+        background-color: rgba(0, 0, 0, 0.5);
+        }
+  </style>
+</head>
+<body>
+    <form>
+        <div class="container">
+            <h1>Выберите метод оплаты</h1>
+            <form>
+              <label for="payment-method">Метод оплаты:</label>
+              <select id="payment-method" name="payment-method" onchange="updateOptions()">
+                <option value="none">Не выбрано</option>
+                <option value="card">Банковская карта</option>
+                <option value="paypal">PayPal</option>
+                <option value="crypto">Криптовалюта</option>
+              </select>
+        
+              <div id="secondary-select-container" class="hidden">
+                <label for="secondary-select">Банк / Кошелек:</label>
+                <select id="secondary-select" name="secondary-select">
+                  <option value="sberbank">Сбербанк</option>
+                  <option value="tinkoff">Тинькофф</option>
+                  <option value="vtb">ВТБ</option>
+                  <option value="alfa">Альфа-Банк</option>
+                </select>
+              </div>
+              <div class="button-container">
+                <button type="submit">Подтвердить</button>
+                <button type="button" class="back-button" onclick="window.location.href='index.html';">На главную</button>
+              </div>
+            </form>
+    </form>
+    <div class="add-card-section hidden" id="add-card-section">
+        <h2>Добавить карту</h2>
+        <div class="card-input">
+          <input type="text" placeholder="Номер карты" maxlength="16" pattern="[0-9]{16}">
+          <input type="text" placeholder="Имя владельца" maxlength="50">
+          <input type="text" placeholder="Дата окончания (MM/YY)" maxlength="5">
+          <input type="text" placeholder="CVV" maxlength="3" pattern="[0-9]{3}">
+          <button type="button">Добавить карту</button>
+        </div>
+      </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

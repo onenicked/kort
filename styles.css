@@ -8,6 +8,9 @@ body {
     font-weight: bold;
     cursor: none;
     overflow: auto;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 /* Прелоадер */

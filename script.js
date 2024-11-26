@@ -107,3 +107,49 @@ let slideIndex = 0;
 
     // Инициализация слайдшоу
     showSlides();
+
+/*Страница оплаты*/
+function updateOptions() {
+    const paymentMethod = document.getElementById('payment-method').value;
+    const secondarySelectContainer = document.getElementById('secondary-select-container');
+    const addCardSection = document.getElementById('add-card-section');
+
+    // При выборе "Не выбрано" скрываем все дополнительные поля
+    if (paymentMethod === 'none') {
+      secondarySelectContainer.classList.add('hidden');
+      addCardSection.classList.remove('visible');
+    } else if (paymentMethod === 'card' || paymentMethod === 'paypal') {
+      // Скрываем выбор "Банк / Кошелек" для "Банковская карта" и "PayPal"
+      secondarySelectContainer.classList.add('hidden');
+      // Показываем секцию добавления карты для "Банковская карта"
+      if (paymentMethod === 'card'|| paymentMethod === 'paypal') {
+        addCardSection.classList.add('visible');
+      } else {
+        addCardSection.classList.remove('visible');
+      }
+    } else {
+      // Показываем выбор "Банк / Кошелек" для других методов
+      secondarySelectContainer.classList.remove('hidden');
+      addCardSection.classList.remove('visible');
+
+      // Если выбран "Криптовалюта", меняем варианты на кошельки
+      if (paymentMethod === 'crypto') {
+        const secondarySelect = document.getElementById('secondary-select');
+        secondarySelect.innerHTML = `
+          <option value="bitcoin">Bitcoin</option>
+          <option value="ethereum">Ethereum</option>
+          <option value="litecoin">Litecoin</option>
+          <option value="ripple">Ripple</option>
+        `;
+      } else {
+        // Восстанавливаем стандартные банки для других методов оплаты
+        const secondarySelect = document.getElementById('secondary-select');
+        secondarySelect.innerHTML = `
+          <option value="sberbank">Сбербанк</option>
+          <option value="tinkoff">Тинькофф</option>
+          <option value="vtb">ВТБ</option>
+          <option value="alfa">Альфа-Банк</option>
+        `;
+      }
+    }
+  }
