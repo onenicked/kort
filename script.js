@@ -190,7 +190,7 @@ function hideStatusAfterDelay() {
     const statusElement = document.getElementById('notification-status');
     setTimeout(() => {
         statusElement.textContent = ''; // Очистка содержимого элемента
-    }, 2000); // 5000 миллисекунд = 5 секунд
+    }, 2000); // 2000 миллисекунд = 5 секунд
 }
 
 // Запрос разрешения при загрузке страницы
