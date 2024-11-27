@@ -45,24 +45,24 @@ function initMap() {
 
     // Первая метка
     const placemark1 = new ymaps.Placemark(location1, {
-        hintContent: "Объект на Гагарина",
-        balloonContent: "",
+        hintContent: "Объект на Гагарина 97",
+        balloonContent: "ЛКБ-Финанс",
     }, {
         preset: 'islands#blackDotIcon', // Вид метки
     });
 
     // Вторая метка
     const placemark2 = new ymaps.Placemark(location2, {
-        hintContent: "Объект на Зои Космодемьянской",
-        balloonContent: "",
+        hintContent: "Объект на Зои Космодемьянской 2Б",
+        balloonContent: "Главное здание",
     }, {
         preset: 'islands#blackDotIcon', // Вид метки
     });
 
     // Третья метка
     const placemark3 = new ymaps.Placemark(location3, {
-        hintContent: "Объект на Зои Космодемьянской",
-        balloonContent: "",
+        hintContent: "Объект на Проспекте Победы, 21",
+        balloonContent: "Магазин одежды",
     }, {
         preset: 'islands#blackDotIcon', // Вид метки
     });
@@ -150,3 +150,50 @@ function updateOptions() {
       }
     }
   }
+
+  function requestNotificationPermission() {
+    const statusElement = document.getElementById('notification-status');
+
+    if (!('Notification' in window)) {
+        statusElement.textContent = 'Ваш браузер не поддерживает уведомления.';
+        hideStatusAfterDelay();
+        return;
+    }
+
+    Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+            statusElement.textContent = 'Уведомления включены!';
+            // Пример отправки тестового уведомления
+            showTestNotification();
+        } else if (permission === 'denied') {
+            statusElement.textContent = 'Вы запретили отправку уведомлений.';
+        } else {
+            statusElement.textContent = 'Запрос на уведомления отклонён или закрыт.';
+        }
+        hideStatusAfterDelay();
+    }).catch(error => {
+        statusElement.textContent = 'Ошибка при запросе уведомлений: ' + error.message;
+        hideStatusAfterDelay();
+    });
+}
+
+// Функция для отправки тестового уведомления
+function showTestNotification() {
+    new Notification('Привет!', {
+        body: 'Спасибо что разрешили уведомления на нашем сайте.',
+        icon: 'favicon.svg' // Замените на ваш логотип или иконку
+    });
+}
+
+// Функция для скрытия статуса через определённое время
+function hideStatusAfterDelay() {
+    const statusElement = document.getElementById('notification-status');
+    setTimeout(() => {
+        statusElement.textContent = ''; // Очистка содержимого элемента
+    }, 2000); // 5000 миллисекунд = 5 секунд
+}
+
+// Запрос разрешения при загрузке страницы
+window.addEventListener('load', () => {
+    requestNotificationPermission();
+});
