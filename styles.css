@@ -376,29 +376,96 @@ a:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
-/*Личный аккаунт*/
-.edit-profile {
-    margin-left: 770px;
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
-.booking {
-    margin-left: 806px;
+.image-container img {
+    width: 100%;
+    display: block;
 }
 
-.logout {
-    margin-left: 873px;
+/* Фигуры */
+.rectangle1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
 }
 
-.addFunds {
-    margin-left: 805px;
+.rectangle2 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
 }
 
-.historybalance {
-    margin-left: -130px;
-    color: #ffffff;
+.rectangle3 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
 }
 
-.admin {
-    margin-left: 877px;
-    margin-top: 50px;
+.rectangle4 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+.rectangle5 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+.rectangle7 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+.rectangle8 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+.rectangle9 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+.rectangle10 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 150px;
+    height: 75px;
+    background-color: rgba(0, 0, 255, 0.5);
 }
