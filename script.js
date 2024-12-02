@@ -142,8 +142,8 @@ function updateOptions() {
         // Восстанавливаем стандартные банки для других методов оплаты
         const secondarySelect = document.getElementById('secondary-select');
         secondarySelect.innerHTML = `
-          <option value="sberbank">Сбербанк</option>
-          <option value="tinkoff">Тинькофф</option>
+          <option value="sberbank">Сбер</option>
+          <option value="tinkoff">Т-Банк</option>
           <option value="vtb">ВТБ</option>
           <option value="alfa">Альфа-Банк</option>
         `;

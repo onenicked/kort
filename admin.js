@@ -10,7 +10,7 @@ function loadUsers() {
     })
         .then((response) => {
             if (!response.ok) {
-                throw new Error("Доступ запрещен!");
+                throw new Error("Доступ запрещен");
             }
             return response.json();
         })

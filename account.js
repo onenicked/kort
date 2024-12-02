@@ -98,7 +98,7 @@ function editProfile() {
 }
 
 function viewBookings() {
-    alert("Ваши бронирования: Пока нет активных заказов.");
+    alert("Ваши бронирования: Пока нет активных заказов");
 }
 
 function logout() {
