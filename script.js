@@ -181,7 +181,7 @@ function updateOptions() {
 function showTestNotification() {
     new Notification('Привет!', {
         body: 'Спасибо что разрешили уведомления на нашем сайте.',
-        icon: 'favicon.svg' // Замените на ваш логотип или иконку
+        icon: 'favicon.svg' // Логотип или иконка
     });
 }
 
@@ -190,10 +190,40 @@ function hideStatusAfterDelay() {
     const statusElement = document.getElementById('notification-status');
     setTimeout(() => {
         statusElement.textContent = ''; // Очистка содержимого элемента
-    }, 2000); // 2000 миллисекунд = 5 секунд
+    }, 2000); // 2000 миллисекунд = 2 секунды
 }
 
 // Запрос разрешения при загрузке страницы
 window.addEventListener('load', () => {
     requestNotificationPermission();
+});
+
+// Получаем элементы
+document.addEventListener('DOMContentLoaded', () => {
+    const rectangles = document.querySelectorAll('.rect');
+    const popup = document.getElementById('popup');
+    const popupContent = document.getElementById('popup-content');
+    const overlay = document.getElementById('overlay');
+    const closePopupButton = document.getElementById('close-popup');
+
+    // Обработчик клика на прямоугольники
+    rectangles.forEach(rect => {
+        rect.addEventListener('click', () => {
+            const info = rect.getAttribute('data-info');
+            popupContent.textContent = info;
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+    });
+
+    // Закрытие всплывающего окна
+    closePopupButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', () => {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
 });
