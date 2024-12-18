@@ -385,9 +385,8 @@ a:hover {
 
 .image-container {
     position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
+    width: auto;
+    margin: auto;
 }
 
 .image-container img {
@@ -397,85 +396,52 @@ a:hover {
 
 .plan-container {
     position: relative;
-    width: 800px; /* Ширина изображения */
-    margin: auto;
+    width: 700px;
+    margin: 20px auto;
 }
 
-.plan-container img {
+.image-container {
     width: 100%;
     display: block;
 }
 
-/* Прямоугольники */
 .rect {
     position: absolute;
-    background-color: rgba(255, 0, 0, 0.507);
-    border: 1px solid rgba(255, 0, 0, 0.507);
+    background: rgba(255, 0, 0, 0.6);
+    border: 1px solid red;
+    cursor: pointer;
 }
 
 .rectfree {
     position: absolute;
-    background-color: rgba(0, 255, 136, 0.507);
-    border: 1px solid rgba(0, 255, 136, 0.507);
+    background: rgba(0, 128, 0, 0.6);
+    border: 1px solid green;
+    cursor: pointer;
 }
 
-.popup {
-    display: none;
-    position: fixed;
+.rectfree:hover {
+    background: rgba(0, 128, 0, 0.8);
+}
+
+.rect:hover {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+.room-text {
+    position: absolute;
     top: 50%;
     left: 50%;
+    font-size: 14px;
     transform: translate(-50%, -50%);
-    width: 300px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    z-index: 1000;
-}
-
-.popup h3 {
-    margin-top: 0;
-    font-size: 18px;
-    color: #333;
-}
-
-.popup p {
-    font-size: 14px;
-    color: #666;
-}
-
-.popup button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #007bff;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.popup button:hover {
-    background-color: #0056b3;
-}
-
-/* Затемнение фона */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    font-weight: bold;
+    pointer-events: none;
 }
 
 /* Прямоугольники */
-.rect1 { top: 72px; left: 395px; width: 187px; height: 130px; }
-.rect2 { top: 220px; left: 426px; width: 115px; height: 130px; }
-.rect3 { top: 512px; left: 315px; width: 320px; height: 237px; }
-.rect4 { top: 365px; left: 185px; width: 140px; height: 126px; }
-.rect5 { top: 572px; left: 186px; width: 123px; height: 87px; }
-.rect6 { top: 660px; left: 186px; width: 123px; height: 87px; }
+.rect1 { top: 63px; left: 345px; width: 163px; height: 115px; }
+.rect2 { top: 192px; left: 374px; width: 100px; height: 112px; }
+.rect3 { top: 445px; left: 276px; width: 279px; height: 210px; }
+.rect4 { top: 320px; left: 162px; width: 122px; height: 112px; }
+.rect5 { top: 498px; left: 163px; width: 108px; height: 78px; }
+.rect6 { top: 580px; left: 163px; width: 108px; height: 74px; }

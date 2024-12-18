@@ -198,32 +198,4 @@ window.addEventListener('load', () => {
     requestNotificationPermission();
 });
 
-// Получаем элементы
-document.addEventListener('DOMContentLoaded', () => {
-    const rectangles = document.querySelectorAll('.rect');
-    const popup = document.getElementById('popup');
-    const popupContent = document.getElementById('popup-content');
-    const overlay = document.getElementById('overlay');
-    const closePopupButton = document.getElementById('close-popup');
 
-    // Обработчик клика на прямоугольники
-    rectangles.forEach(rect => {
-        rect.addEventListener('click', () => {
-            const info = rect.getAttribute('data-info');
-            popupContent.textContent = info;
-            popup.style.display = 'block';
-            overlay.style.display = 'block';
-        });
-    });
-
-    // Закрытие всплывающего окна
-    closePopupButton.addEventListener('click', () => {
-        popup.style.display = 'none';
-        overlay.style.display = 'none';
-    });
-
-    overlay.addEventListener('click', () => {
-        popup.style.display = 'none';
-        overlay.style.display = 'none';
-    });
-});
