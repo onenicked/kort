@@ -1,8 +1,12 @@
 // Упрощённые данные пользователей
 const users = [
     { username: "admin", password: "admin" },
-    { username: "anna", password: "54321" },
-    { username: "123", password: "123" }
+    { username: "anna", password: "anna" },
+    { username: "kort", password: "oookort" },
+    { username: "test", password: "test" },
+    { username: "123", password: "123" },
+    { username: "stop", password: "222" },
+    { username: "333", password: "333" },
 ];
 
 document.getElementById("loginForm").addEventListener("submit", function (e) {

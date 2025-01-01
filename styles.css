@@ -412,6 +412,13 @@ a:hover {
     cursor: pointer;
 }
 
+.rectorangerental {
+    position: absolute;
+    background: rgba(255, 166, 0, 0.6);
+    border: 1px solid orange;
+    cursor: pointer;
+}
+
 .rectfree {
     position: absolute;
     background: rgba(0, 128, 0, 0.6);
@@ -423,6 +430,10 @@ a:hover {
     background: rgba(0, 128, 0, 0.8);
 }
 
+.rectorangerental:hover {
+    background: rgba(255, 166, 0, 0.8)
+}
+
 .rect:hover {
     background: rgba(255, 0, 0, 0.8);
 }
@@ -431,7 +442,7 @@ a:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 14px;
+    font-size: 12px;
     transform: translate(-50%, -50%);
     color: #fff;
     font-weight: bold;

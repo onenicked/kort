@@ -29,38 +29,6 @@ function saveUserData() {
     localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 }
 
-// Функция для пополнения баланса
-function addFunds() {
-    const amount = parseFloat(prompt("Введите сумму пополнения:"));
-    if (isNaN(amount) || amount <= 0) {
-        alert("Введите корректную сумму!");
-        return;
-    }
-    loggedUser.balance += amount; // Увеличиваем баланс
-    logTransaction("Пополнение", amount);
-    saveUserData();
-    alert(`Баланс успешно пополнен на ${amount} ₽`);
-    updateUserInterface();
-}
-
-// Функция для списания средств
-function spendFunds() {
-    const amount = parseFloat(prompt("Введите сумму списания:"));
-    if (isNaN(amount) || amount <= 0) {
-        alert("Введите корректную сумму!");
-        return;
-    }
-    if (amount > loggedUser.balance) {
-        alert("Недостаточно средств на балансе!");
-        return;
-    }
-    loggedUser.balance -= amount; // Уменьшаем баланс
-    logTransaction("Списание", -amount);
-    saveUserData();
-    alert(`Средства в размере ${amount} ₽ успешно списаны`);
-    updateUserInterface();
-}
-
 // Функция для добавления записи в лог операций
 function logTransaction(type, amount) {
     const date = new Date().toLocaleString(); // Получаем текущую дату и время
@@ -95,10 +63,6 @@ function logout() {
 // Функции для обработки действий пользователя
 function editProfile() {
     alert("Редактирование профиля пока недоступно. Эта функция в разработке.");
-}
-
-function viewBookings() {
-    alert("Ваши бронирования: Пока нет активных заказов");
 }
 
 function logout() {
