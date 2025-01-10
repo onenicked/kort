@@ -1,4 +1,4 @@
-**Постоянный домен сайта** — https://shortcoldgit.github.io/kort
+**Постоянный домен сайта** — https://oa666git.github.io/kort
 
 # 01/01/2025
 ### Очищен весь код от мусора.
