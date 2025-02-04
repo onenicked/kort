@@ -38,9 +38,6 @@ body {
     padding: 20px 30px;
     color: #ffffff;
     text-align: center;
-    background: rgba(36,188,196, 0.274); /* Прозрачный белый фон */
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .textservices {
@@ -53,11 +50,9 @@ body {
 .textabout {
     padding: 20px 30px;
     color: #ffffff;
-    font-weight: lighter;
+    font-weight: bold;
     text-align: center;
-    background: rgba(36,188,196, 0.274); /* Прозрачный белый фон */
     border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .contacts {
@@ -65,9 +60,6 @@ body {
     color: #ffffff;
     font-weight: lighter;
     text-align: center;
-    background: rgba(36,188,196, 0.274); /* Прозрачный белый фон */
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .services {
