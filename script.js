@@ -11,23 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 200); // Задержка в 200 милисекунд
 });
 
-// Создаём элемент кастомного курсора
-const cursor = document.createElement("div");
-cursor.classList.add("custom-cursor");
-document.body.appendChild(cursor);
-
-// Обновляем положение курсора при движении мыши
-document.addEventListener("mousemove", (e) => {
-    cursor.style.left = `${e.clientX}px`; // Координаты относительно окна
-    cursor.style.top = `${e.clientY}px`; // Координаты относительно окна
-});
-
-// Реагируем на элементы, такие как ссылки (увеличиваем круг)
-document.querySelectorAll("a, button").forEach((element) => {
-    element.addEventListener("mouseenter", () => cursor.classList.add("hover"));
-    element.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
-});
-
 // Инициализация карты
 ymaps.ready(initMap);
 
@@ -198,4 +181,74 @@ window.addEventListener('load', () => {
     requestNotificationPermission();
 });
 
+function calculate() {
+    const rent = parseFloat(document.getElementById('rent').value);
+    const months = parseFloat(document.getElementById('months').value);
+    const commission = parseFloat(document.getElementById('commission').value);
 
+    if (isNaN(rent) || isNaN(months) || isNaN(commission)) {
+      document.getElementById('result').textContent = 'Пожалуйста, заполните все поля корректно.';
+      return;
+    }
+
+    const base = rent * months;
+    const commissionAmount = (base * commission) / 100;
+    const total = base + commissionAmount;
+
+    document.getElementById('result').textContent = `Итого к оплате: ${total.toLocaleString('ru-RU')} ₽`;
+
+    // Показываем таблицу платежей
+    const tableHTML = generatePaymentTable(rent, months);
+    document.getElementById('paymentTable').innerHTML = tableHTML;
+
+    // Сохраняем результат
+    const newEntry = {
+      rent, months, commission, total, date: new Date().toLocaleString()
+    };
+
+    let history = JSON.parse(localStorage.getItem('rentHistory')) || [];
+    history.unshift(newEntry); // добавляем в начало
+    if (history.length > 5) history = history.slice(0, 5); // максимум 5 записей
+    localStorage.setItem('rentHistory', JSON.stringify(history));
+
+    renderHistory();
+  }
+
+  function generatePaymentTable(rent, months) {
+    let rows = '';
+    for (let i = 1; i <= months; i++) {
+      rows += `<tr><td>${i}</td><td>${rent.toLocaleString('ru-RU')} ₽</td></tr>`;
+    }
+    return `
+      <h3>График платежей</h3>
+      <table>
+        <thead>
+          <tr><th>Месяц</th><th>Платёж</th></tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+  }
+
+  function renderHistory() {
+    const history = JSON.parse(localStorage.getItem('rentHistory')) || [];
+    const container = document.getElementById('history');
+    container.innerHTML = history.map(item => `
+      <div class="history-item">
+        <strong>${item.date}</strong><br/>
+        Аренда: ${item.rent}₽ × ${item.months} мес.<br/>
+        Комиссия: ${item.commission}%<br/>
+        <strong>Итого: ${item.total.toLocaleString('ru-RU')} ₽</strong>
+      </div>
+    `).join('');
+  }
+
+  function clearHistory() {
+    localStorage.removeItem('rentHistory');
+    renderHistory();
+    document.getElementById('paymentTable').innerHTML = '';
+    document.getElementById('result').textContent = '';
+  }
+
+  // Загружаем при старте
+  renderHistory();

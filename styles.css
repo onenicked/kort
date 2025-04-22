@@ -6,7 +6,6 @@ body {
     background-attachment: fixed;
     font-family: "Unbounded", sans-serif;
     font-weight: bold;
-    cursor: none;
     overflow: auto;
     justify-content: center;
     align-items: center;
@@ -200,25 +199,6 @@ footer a:hover {
     z-index: -1;
 }
 
-/* Кастомный курсор */
-.custom-cursor {
-    position: fixed;
-    width: 20px; /* Диаметр круга */
-    height: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Цвет круга */
-    border-radius: 50%;
-    pointer-events: none; /* Отключаем взаимодействие с элементом */
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: transform 0.1s ease-out, background-color 0.2s ease;
-}
-
-/* Эффект увеличения курсора при наведении на ссылку */
-.custom-cursor.hover {
-    transform: translate(-50%, -50%) scale(1.5);
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
 /* Фото на сайте */
 .slideshow-container {
             position: center;
@@ -271,7 +251,6 @@ footer a:hover {
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
         }
 
@@ -314,7 +293,6 @@ button {
     font-family: "Unbounded", sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
 }
@@ -353,7 +331,6 @@ a:hover {
 /* Основные стили для навигации */
 .main-navigation {
     text-align: center;
-    cursor: none;
     margin-top: 20px;
 }
 
@@ -362,7 +339,6 @@ a:hover {
     color: #ffffff; /* Белый цвет текста */
     padding: 10px 20px;
     margin: 5px;
-    cursor: none;
     border-radius: 30px;
     font-size: 1rem;
     font-weight: bold;
@@ -401,21 +377,18 @@ a:hover {
     position: absolute;
     background: rgba(255, 0, 0, 0.6);
     border: 1px solid red;
-    cursor: pointer;
 }
 
 .rectorangerental {
     position: absolute;
     background: rgba(255, 166, 0, 0.6);
     border: 1px solid orange;
-    cursor: pointer;
 }
 
 .rectfree {
     position: absolute;
     background: rgba(0, 128, 0, 0.6);
     border: 1px solid green;
-    cursor: pointer;
 }
 
 .rectfree:hover {

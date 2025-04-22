@@ -12,10 +12,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <style>
+        .calculator {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    input {
+      width: 100%;
+      font-family: "Unbounded", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #242424;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #00000088;
+    }
+    .result, .history, .table-container {
+      margin-top: 1.5rem;
+    }
+    .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    .history-item {
+      background: #f9f9f9;
+      border-radius: 0.5rem;
+      padding: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .calculator {
+        padding: 1rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+      }
+
+      input {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+
     <header>
         <div class="logo">
             <a href="index.html" class="header_layer2-logo">
-                <img src="logo.svg" alt="logo">
+                <img src="img/logo.svg" alt="logo">
             </a>
         </div>
         <nav class="main-navigation">
@@ -23,6 +105,8 @@
             <a href="about.html">О компании</a>
             <a href="services.html">Помещения</a>
             <a href="contacts.html">Контакты</a>
+            <a href="partners.html">Партнёры</a>
+            <a href="#calculator">Арендный калькулятор</a>
             <a href="account.html">Аккаунт</a>
         </nav>
     </header>
@@ -71,12 +155,34 @@
         </h2>
     </main>
     
-    <main class="notice">
-        <a href="https://arendbiz.ru/kalkulyator-arendnogo-biznesa/page.php">
-            <button>Арендный калькулятор</button>
-        </a>
-    </main>
+    <div id="calculator" style="margin: auto;" class="calculator">
+        <h2>Арендный калькулятор</h2>
+        <div class="form-group">
+          <label for="rent">Сумма аренды (в мес.)</label>
+          <input type="number" id="rent" placeholder="например, 10000" />
+        </div>
+        <div class="form-group">
+          <label for="months">Срок аренды (мес.)</label>
+          <input type="number" id="months" placeholder="например, 6" />
+        </div>
+        <div class="form-group">
+          <label for="commission">Процент комиссии (%)</label>
+          <input type="number" id="commission" placeholder="например, 10" />
+        </div>
+        <button onclick="calculate()">Рассчитать</button>
+        <button onclick="clearHistory()">Очистить историю</button>
+    
+        <div class="result" id="result"></div>
+        <div class="table-container" id="paymentTable"></div>
+        <div class="history">
+          <h3>История расчётов</h3>
+          <div id="history"></div>
+        </div>
+      </div>
 
+    <br>
+    <br>
+    <br>
     <footer>
         <!-- Информация о компании -->
         <div class="company-info">
@@ -86,23 +192,24 @@
         <!-- Ссылки на социальные сети -->
         <div class="social-links">
             <a href="notavaiblepage.html" target="_blank">
-                <img src="free-icon-vk-5968835.ico" alt="vk">
+                <img src="img/free-icon-vk-5968835.ico" alt="vk">
                 ВКонтакте
             </a>
             <a href="notavaiblepage.html" target="_blank"> 
-                <img src="free-icon-odnoklassniki-3669991.ico" alt="ok">
+                <img src="img/free-icon-odnoklassniki-3669991.ico" alt="ok">
                 Одноклассники</a>
             <a href="https://github.com/onenicked" target="_blank">
-                <img src="github-icon-2048x2048-iw6ut8fe.png" alt="tg dev">
+                <img src="img/github-icon-2048x2048-iw6ut8fe.png" alt="tg dev">
                 Разработчик</a>
         </div>
         
         <!-- Дополнительные ссылки -->
         <div class="footer-links">
-            <a href="notavaiblepage.html">Политика конфиденциальности</a>
-            <a href="notavaiblepage.html">Условия использования</a>
+            <a href="https://policies.google.com/privacy?hl=ru">Политика конфиденциальности</a>
+            <a href="https://policies.google.com/terms?hl=ru">Условия использования</a>
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
 </html>
